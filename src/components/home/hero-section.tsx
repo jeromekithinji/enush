@@ -11,13 +11,13 @@ export function HeroSection () {
 			<div className='mx-auto grid w-full max-w-[1280px] items-center gap-10 px-5 py-10 md:px-8 lg:grid-cols-2 lg:gap-12 lg:px-10 lg:py-16'>
 				<div className='flex flex-col'>
 					<h1 className='font-heading text-[2rem] font-semibold leading-[1.15] tracking-tight text-charcoal sm:text-4xl lg:text-[2.75rem] xl:text-[3.15rem]'>
-						Financial support for your employees—without disrupting your
-						business.
+						Supporting Your Financial Needs Today. Strengthening Your Tomorrow.
 					</h1>
 					<p className='mt-5 max-w-xl text-base leading-7 text-muted-foreground lg:text-[1.05rem] lg:leading-8'>
-						Enusha Capital partners with employers to give eligible employees
-						convenient access to responsible payroll check-off loans, supported
-						by practical financial wellness education.
+						Enusha Capital partners with trusted partners to provide eligible
+						employees with convenient access to responsible payroll check-off
+						loans for everyday needs, important milestones and unexpected
+						expenses—supported by practical financial wellness programs.
 					</p>
 					<div className='mt-7 flex w-full flex-col gap-3 lg:flex-row lg:items-center'>
 						<Button
