@@ -13,7 +13,7 @@ export function BrandLogo ({ showTagline = false }: BrandLogoProps) {
 				alt='Enusha Capital Ltd'
 				width={230}
 				height={128}
-				className='h-10 w-auto lg:h-11'
+				className='h-11 w-auto lg:h-12'
 				priority
 			/>
 			{showTagline ? (

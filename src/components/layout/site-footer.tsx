@@ -13,7 +13,7 @@ import {
 
 export function SiteFooter () {
 	return (
-		<footer className='bg-charcoal text-white'>
+		<footer id='contact' className='bg-charcoal text-white'>
 			<div className='border-t border-white/10'>
 				<div className='mx-auto grid w-full max-w-[1280px] gap-10 px-5 py-12 md:px-8 lg:grid-cols-3 lg:gap-16 lg:px-10 lg:py-16'>
 					<div>

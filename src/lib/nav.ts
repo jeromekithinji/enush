@@ -36,14 +36,14 @@ export const navItems: NavItem[] = [
 		description: 'Financial wellness education for employees through FinSmart.',
 	},
 	{
-		href: '/corporate-benefits',
+		href: '/#corporate-benefits',
 		label: 'Corporate Benefits',
 		description: 'Benefits of partnering with Enusha Capital for your organisation.',
 	},
 	{
-		href: '/#faqs',
-		label: 'FAQs',
-		description: 'Answers to common questions from employers, HR teams, and employees.',
+		href: '/#contact',
+		label: 'Contact Us',
+		description: 'Get in touch with the Enusha team.',
 	},
 ]
 

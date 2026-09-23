@@ -119,7 +119,7 @@ export function WhyEnushaSection () {
 				</div>
 			</div>
 
-			<div className='bg-cream'>
+			<div id='corporate-benefits' className='bg-cream'>
 				<div className='mx-auto w-full max-w-[1280px] px-5 py-14 md:px-8 lg:px-10 lg:py-20'>
 					<h3 className='text-center font-heading text-[1.75rem] font-semibold tracking-tight text-charcoal sm:text-4xl'>
 						Benefits for corporate partners and employees
