@@ -38,6 +38,13 @@ export function FinSmartSection () {
 						It is included for employees participating in Enusha&apos;s Staff
 						Check-Off Scheme.
 					</p>
+					<p className='mt-4 text-base leading-7 text-zinc-300 lg:text-[1.05rem] lg:leading-8'>
+						Our work primarily supports The UN Sustainable Development Goals
+						(SDG) 8 – Decent Work and Economic Growth, while contributing to
+						SDG 4 – Quality Education and SDG 1 – No Poverty, helping employees
+						build financial capability, resilience and a more secure financial
+						future.
+					</p>
 					<ul className='mt-6 space-y-3'>
 						{finsmartBenefits.map((benefit) => (
 							<li
