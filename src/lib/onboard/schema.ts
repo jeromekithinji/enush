@@ -75,9 +75,9 @@ export const companySchema = z.object({
 	registrationNumber: requiredText,
 	kraPin: requiredText,
 	dateIncorporated: optionalText,
-	yearsInOperation: wholeNumber,
+	yearsInOperation: requiredWholeNumber,
 	industry: requiredText,
-	natureOfBusiness: optionalText,
+	natureOfBusiness: requiredText,
 	legalStructure: requiredText,
 	legalStructureOther: optionalText,
 }).superRefine((data, ctx) => {

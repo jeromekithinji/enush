@@ -140,6 +140,7 @@ export function OnboardingForm () {
 	const [hydrated, setHydrated] = useState(false)
 	const [maxReached, setMaxReached] = useState(0)
 	const errorSummaryRef = useRef<HTMLDivElement>(null)
+	const formTopRef = useRef<HTMLDivElement>(null)
 	const saveTimer = useRef<number | null>(null)
 	const restoredRef = useRef(false)
 
@@ -271,6 +272,13 @@ export function OnboardingForm () {
 		})
 	}
 
+	function scrollToForm () {
+		formTopRef.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		})
+	}
+
 	function applyZodErrors (
 		prefix: string,
 		issues: { path: PropertyKey[], message: string }[],
@@ -322,6 +330,7 @@ export function OnboardingForm () {
 			persistDraft(8)
 			setStep(8)
 			setMaxReached((current) => Math.max(current, 8))
+			scrollToForm()
 			return
 		}
 
@@ -342,7 +351,7 @@ export function OnboardingForm () {
 		if (step === 8) {
 			persistDraft(8)
 			setView('review')
-			window.scrollTo({ top: 0, behavior: 'smooth' })
+			scrollToForm()
 			return
 		}
 
@@ -350,7 +359,7 @@ export function OnboardingForm () {
 		persistDraft(nextStep)
 		setStep(nextStep)
 		setMaxReached((current) => Math.max(current, nextStep))
-		window.scrollTo({ top: 0, behavior: 'smooth' })
+		scrollToForm()
 	}
 
 	function handleBack () {
@@ -359,12 +368,14 @@ export function OnboardingForm () {
 		if (view === 'review') {
 			setView('form')
 			setStep(8)
+			scrollToForm()
 			return
 		}
 		if (step === 0) {
 			return
 		}
 		setStep(step - 1)
+		scrollToForm()
 	}
 
 	function handleEdit (nextStep: number) {
@@ -375,7 +386,7 @@ export function OnboardingForm () {
 		setStep(nextStep)
 		setBanner(null)
 		setStepErrors([])
-		window.scrollTo({ top: 0, behavior: 'smooth' })
+		scrollToForm()
 	}
 
 	async function handleSubmit () {
@@ -504,7 +515,7 @@ export function OnboardingForm () {
 			clearOnboardDraft()
 			setSuccess({ reference, submittedAt, emailQueued })
 			setView('success')
-			window.scrollTo({ top: 0, behavior: 'smooth' })
+			scrollToForm()
 		} catch {
 			setBanner({
 				kind: 'connection',
@@ -552,7 +563,7 @@ export function OnboardingForm () {
 		: ((step + 1) / ONBOARD_STEPS.length) * 100
 
 	return (
-		<div className='mx-auto w-full max-w-5xl'>
+		<div ref={formTopRef} className='mx-auto w-full max-w-5xl scroll-mt-28'>
 			<div className='print:hidden'>
 				<div className='mb-2 flex items-end justify-between gap-4'>
 					<p className='text-sm font-medium text-charcoal'>

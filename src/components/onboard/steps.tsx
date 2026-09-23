@@ -104,6 +104,7 @@ export function CompanyDetailsStep ({ form }: StepProps) {
 			<Field
 				id='company.yearsInOperation'
 				label='Years in Operation'
+				required
 				error={errorMessage(form, 'company.yearsInOperation')}
 			>
 				<Input
@@ -111,6 +112,7 @@ export function CompanyDetailsStep ({ form }: StepProps) {
 					placeholder='e.g. 5'
 					inputMode='numeric'
 					className={inputClassName(Boolean(errorMessage(form, 'company.yearsInOperation')))}
+					aria-invalid={Boolean(errorMessage(form, 'company.yearsInOperation'))}
 					{...register('company.yearsInOperation')}
 				/>
 			</Field>
@@ -128,11 +130,17 @@ export function CompanyDetailsStep ({ form }: StepProps) {
 					{...register('company.industry')}
 				/>
 			</Field>
-			<Field id='company.natureOfBusiness' label='Nature of Business'>
+			<Field
+				id='company.natureOfBusiness'
+				label='Nature of Business'
+				required
+				error={errorMessage(form, 'company.natureOfBusiness')}
+			>
 				<Input
 					id='company.natureOfBusiness'
 					placeholder='Brief description'
-					className={inputClassName()}
+					className={inputClassName(Boolean(errorMessage(form, 'company.natureOfBusiness')))}
+					aria-invalid={Boolean(errorMessage(form, 'company.natureOfBusiness'))}
 					{...register('company.natureOfBusiness')}
 				/>
 			</Field>

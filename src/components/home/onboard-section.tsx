@@ -2,7 +2,11 @@ import { OnboardingForm } from '@/components/onboard/onboarding-form'
 
 export function OnboardSection () {
 	return (
-		<section id='onboard' aria-labelledby='onboard-heading'>
+		<section
+			id='onboard'
+			aria-labelledby='onboard-heading'
+			className='scroll-mt-28'
+		>
 			<div className='bg-zinc-100'>
 				<div className='mx-auto w-full max-w-5xl px-5 py-14 md:px-8 lg:px-10 lg:py-20'>
 					<div className='mb-8 text-center md:mb-10'>
