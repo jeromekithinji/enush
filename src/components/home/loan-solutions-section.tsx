@@ -23,7 +23,7 @@ const loanProducts: LoanProduct[] = [
 			'For salaried parents and guardians managing school-fee obligations and seasonal education expenses.',
 		amount: 'KES 10K–100K',
 		tenor: 'Up to 4 months',
-		interest: '9%',
+		interest: '10%',
 	},
 	{
 		name: 'Enusha Elevate',
@@ -32,7 +32,7 @@ const loanProducts: LoanProduct[] = [
 		description:
 			'For salaried employees pursuing professional courses, certifications, and career development.',
 		amount: 'KES 15K–150K',
-		tenor: 'Up to 12 months',
+		tenor: 'Up to 6 months',
 		interest: '10%',
 		image: {
 			src: '/images/loan-elevate.jpg',
@@ -46,8 +46,8 @@ const loanProducts: LoanProduct[] = [
 		description:
 			'For employees purchasing home appliances, furniture, electronics, and other practical home improvements.',
 		amount: 'KES 15K–200K',
-		tenor: 'Up to 12 months',
-		interest: '11%',
+		tenor: 'Up to 6 months',
+		interest: '10%',
 		image: {
 			src: '/images/loan-nyumba.jpg',
 			alt: 'A couple placing a coffee table in a bright living room',
@@ -101,7 +101,7 @@ export function LoanSolutionsSection () {
 					id='loan-solutions-heading'
 					className='text-center font-heading text-[1.85rem] font-semibold tracking-tight text-charcoal sm:text-4xl'
 				>
-					Six employee loan solutions
+					Six loan solutions
 				</h2>
 				<p className='mx-auto mt-3 max-w-5xl text-center text-base leading-7 text-muted-foreground md:whitespace-nowrap'>
 					Financial solutions for every moment of life—delivered responsibly,

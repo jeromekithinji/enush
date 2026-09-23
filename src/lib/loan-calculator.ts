@@ -24,7 +24,7 @@ export const LOAN_PRODUCTS: LoanProductConfig[] = [
 		id: 'fees-bila-stress',
 		name: 'Fees Bila Stress',
 		category: 'School Fees',
-		monthlyRate: 0.09,
+		monthlyRate: 0.1,
 		minAmount: 10000,
 		maxAmount: 100000,
 		minTenor: 1,
@@ -39,18 +39,18 @@ export const LOAN_PRODUCTS: LoanProductConfig[] = [
 		minAmount: 15000,
 		maxAmount: 150000,
 		minTenor: 1,
-		maxTenor: 12,
+		maxTenor: 6,
 		isPaydayAdvance: false,
 	},
 	{
 		id: 'enusha-nyumba-upgrade',
 		name: 'Enusha Nyumba Upgrade',
 		category: 'Home & Lifestyle',
-		monthlyRate: 0.11,
+		monthlyRate: 0.1,
 		minAmount: 15000,
 		maxAmount: 200000,
 		minTenor: 1,
-		maxTenor: 12,
+		maxTenor: 6,
 		isPaydayAdvance: false,
 	},
 	{
@@ -104,6 +104,27 @@ export function clampNumber (
 
 export function roundCurrency (value: number): number {
 	return Math.round(value * 100) / 100
+}
+
+export const PROCESSING_FEE_RATE = 0.03
+export const CREDIT_LIFE_INSURANCE_RATE = 0.01
+
+export function calculateProcessingFee (principal: number): number {
+	return roundCurrency(principal * PROCESSING_FEE_RATE)
+}
+
+export function calculateCreditLifeInsurance (
+	principal: number,
+): number {
+	return roundCurrency(principal * CREDIT_LIFE_INSURANCE_RATE)
+}
+
+export function getTotalLoanAmount (principal: number): number {
+	return roundCurrency(
+		principal
+			+ calculateProcessingFee(principal)
+			+ calculateCreditLifeInsurance(principal),
+	)
 }
 
 /**

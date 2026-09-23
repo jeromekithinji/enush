@@ -6,13 +6,16 @@ import { Calculator, ChevronDown, TrendingDown } from 'lucide-react'
 import {
 	LOAN_PRODUCTS,
 	calculateAmortizationSchedule,
+	calculateCreditLifeInsurance,
 	calculateMonthlyRepayment,
+	calculateProcessingFee,
 	clampNumber,
 	formatKes,
 	formatKesRange,
 	getInterestRateLabel,
 	getLoanProduct,
 	getMonthlyRatePercent,
+	getTotalLoanAmount,
 	type LoanProductConfig,
 } from '@/lib/loan-calculator'
 import { cn } from '@/lib/utils'
@@ -71,13 +74,24 @@ export function LoanCalculatorSection () {
 	const [isScheduleOpen, setIsScheduleOpen] = useState(false)
 
 	const product = getProduct(productId)
+	const processingFee = calculateProcessingFee(amount)
+	const creditLifeInsurance = calculateCreditLifeInsurance(amount)
+	const totalAmount = getTotalLoanAmount(amount)
 	const monthlyPayment = useMemo(
-		() => calculateMonthlyRepayment(amount, product.monthlyRate, tenor),
-		[amount, product.monthlyRate, tenor],
+		() => calculateMonthlyRepayment(
+			totalAmount,
+			product.monthlyRate,
+			tenor,
+		),
+		[totalAmount, product.monthlyRate, tenor],
 	)
 	const schedule = useMemo(
-		() => calculateAmortizationSchedule(amount, product.monthlyRate, tenor),
-		[amount, product.monthlyRate, tenor],
+		() => calculateAmortizationSchedule(
+			totalAmount,
+			product.monthlyRate,
+			tenor,
+		),
+		[totalAmount, product.monthlyRate, tenor],
 	)
 	const ratePercent = getMonthlyRatePercent(product.monthlyRate)
 	const tenorOptions = Array.from(
@@ -335,6 +349,28 @@ export function LoanCalculatorSection () {
 									{product.isPaydayAdvance
 										? 'Until next payday'
 										: `${tenor} months`}
+								</p>
+							</div>
+							<div className='rounded-xl bg-white/5 px-4 py-4'>
+								<p className='text-sm text-zinc-400'>
+									Loan processing fee (3%)
+								</p>
+								<p className='mt-1 text-lg font-semibold text-white'>
+									{formatKes(processingFee)}
+								</p>
+							</div>
+							<div className='rounded-xl bg-white/5 px-4 py-4'>
+								<p className='text-sm text-zinc-400'>
+									Credit life insurance (1%)
+								</p>
+								<p className='mt-1 text-lg font-semibold text-white'>
+									{formatKes(creditLifeInsurance)}
+								</p>
+							</div>
+							<div className='col-span-2 rounded-xl bg-white/5 px-4 py-4'>
+								<p className='text-sm text-zinc-400'>Total amount</p>
+								<p className='mt-1 text-lg font-semibold text-white'>
+									{formatKes(totalAmount)}
 								</p>
 							</div>
 							<div className='col-span-2 rounded-xl bg-white/5 px-4 py-4'>
