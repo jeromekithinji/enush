@@ -18,12 +18,22 @@ export function HashLink ({
 	function handleClick () {
 		onNavigate?.()
 
-		if (href.startsWith('/#')) {
-			const id = href.slice(2)
-			window.setTimeout(() => {
-				document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-			}, 50)
+		const hashIndex = href.indexOf('#')
+		if (hashIndex === -1) {
+			return
 		}
+
+		const id = href.slice(hashIndex + 1)
+		if (!id) {
+			return
+		}
+
+		window.setTimeout(() => {
+			document.getElementById(id)?.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+			})
+		}, 80)
 	}
 
 	return (

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { HashLink } from '@/components/layout/hash-link'
 import {
 	COMPANY_ADDRESS_LINES,
 	COMPANY_NAME,
@@ -78,16 +79,12 @@ export function SiteFooter () {
 							</div>
 							<div>
 								<dt className='inline text-zinc-400'>Telephone: </dt>
-								<dd className='inline text-brand'>{SUPPORT_TELEPHONE}</dd>
-							</div>
-							<div>
-								<dt className='inline text-zinc-400'>Customer Support: </dt>
 								<dd className='inline'>
 									<a
-										href={`mailto:${SUPPORT_EMAIL}`}
+										href={`tel:${SUPPORT_TELEPHONE.replace(/\s/g, '')}`}
 										className='text-brand hover:underline'
 									>
-										{SUPPORT_EMAIL}
+										{SUPPORT_TELEPHONE}
 									</a>
 								</dd>
 							</div>
@@ -101,12 +98,12 @@ export function SiteFooter () {
 						<ul className='mt-4 space-y-3 text-sm'>
 							{legalNavItems.map((item) => (
 								<li key={item.href}>
-									<Link
+									<HashLink
 										href={item.href}
 										className='text-zinc-400 transition-colors hover:text-white'
 									>
 										{item.label}
-									</Link>
+									</HashLink>
 								</li>
 							))}
 						</ul>

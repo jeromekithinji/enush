@@ -79,8 +79,8 @@ export function AboutSection () {
 								className='mt-1.5 size-2 shrink-0 rounded-full bg-brand'
 							/>
 							<span>
-								<span className='font-semibold'>Head Office:</span> 147 Rhapata
-								Road, Westlands, Nairobi, Kenya.
+								<span className='font-semibold'>Head Office:</span> Pioneer
+								House, Kenyatta Avenue, Nairobi, Kenya
 							</span>
 						</p>
 					</div>
