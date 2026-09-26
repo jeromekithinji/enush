@@ -1,7 +1,7 @@
-import { HashLink } from '@/components/layout/hash-link'
 import { Button } from '@/components/ui/button'
+import { HashLink } from '@/components/layout/hash-link'
+import { SpeakToTeamButton } from '@/components/home/enquiry-modal'
 import { primaryCta } from '@/lib/nav'
-import { SUPPORT_EMAIL } from '@/lib/site'
 
 export function FinalCtaSection () {
 	return (
@@ -29,13 +29,7 @@ export function FinalCtaSection () {
 					>
 						<HashLink href={primaryCta.href}>{primaryCta.label}</HashLink>
 					</Button>
-					<Button
-						asChild
-						variant='outline'
-						className='h-12 w-full rounded-md border-white bg-transparent px-6 text-sm font-semibold text-white hover:bg-white/10 hover:text-white sm:w-auto'
-					>
-						<a href={`mailto:${SUPPORT_EMAIL}`}>Speak to the Enusha Team</a>
-					</Button>
+					<SpeakToTeamButton />
 				</div>
 			</div>
 		</section>

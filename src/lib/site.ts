@@ -5,7 +5,7 @@ export const COMPANY_ADDRESS_LINES = [
 ] as const
 export const COMPANY_ADDRESS = COMPANY_ADDRESS_LINES.join(' ')
 export const SUPPORT_EMAIL = 'clientsupport@enusha.co.ke'
-export const SUPPORT_TELEPHONE = '+254 759 385059'
+export const SUPPORT_TELEPHONE = '+254 759 285059'
 export const TAGLINE = 'Loans Bila Stress'
 
 export const legalNavItems = [
