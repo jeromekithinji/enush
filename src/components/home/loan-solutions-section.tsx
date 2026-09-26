@@ -24,6 +24,10 @@ const loanProducts: LoanProduct[] = [
 		amount: 'KES 10K–100K',
 		tenor: 'Up to 4 months',
 		interest: '10%',
+		image: {
+			src: '/images/loan-fees-bila-stress.jpg',
+			alt: 'A parent hugging a child with a backpack at the doorway',
+		},
 	},
 	{
 		name: 'Enusha Elevate',
@@ -62,6 +66,10 @@ const loanProducts: LoanProduct[] = [
 		amount: 'KES 10K–100K',
 		tenor: 'Up to 6 months',
 		interest: '10%',
+		image: {
+			src: '/images/loan-dharura.jpg',
+			alt: 'A man sitting on a sofa looking worried with his hands clasped',
+		},
 	},
 	{
 		name: 'Enusha Sasa',
@@ -72,6 +80,10 @@ const loanProducts: LoanProduct[] = [
 		amount: 'From KES 5,000',
 		tenor: 'Until next payday',
 		interest: '9%',
+		image: {
+			src: '/images/loan-sasa.jpg',
+			alt: 'A smiling man sitting on a sofa holding cash',
+		},
 	},
 	{
 		name: 'Enusha Raha',
