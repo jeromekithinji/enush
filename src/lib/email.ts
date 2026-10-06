@@ -1,4 +1,9 @@
-import { COMPANY_NAME, SUPPORT_EMAIL, SUPPORT_TELEPHONE } from '@/lib/site'
+import {
+	COMPANY_NAME,
+	SUPPORT_EMAIL,
+	SUPPORT_TELEPHONE,
+	TEAM_NOTIFICATION_EMAILS,
+} from '@/lib/site'
 import type { EnquiryValues } from '@/lib/enquiry/schema'
 import type { OnboardFormValues } from '@/lib/onboard/schema'
 
@@ -68,7 +73,7 @@ function wrapHtml (title: string, body: string) {
 }
 
 async function sendEmail (input: {
-	to: string
+	to: string | string[]
 	subject: string
 	text: string
 	html: string
@@ -92,7 +97,7 @@ async function sendEmail (input: {
 			},
 			body: JSON.stringify({
 				from,
-				to: [input.to],
+				to: Array.isArray(input.to) ? input.to : [input.to],
 				subject: input.subject,
 				text: input.text,
 				html: input.html,
@@ -115,7 +120,12 @@ async function sendEmail (input: {
 }
 
 function teamInbox () {
-	return process.env.TEAM_NOTIFICATION_EMAIL ?? SUPPORT_EMAIL
+	const extra = (process.env.TEAM_NOTIFICATION_EMAIL ?? '')
+		.split(',')
+		.map((email) => email.trim())
+		.filter(Boolean)
+
+	return [...new Set([...TEAM_NOTIFICATION_EMAILS, ...extra])]
 }
 
 export async function notifyEnquirySubmitted (input: {
