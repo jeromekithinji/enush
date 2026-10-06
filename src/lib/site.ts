@@ -4,7 +4,7 @@ export const COMPANY_ADDRESS_LINES = [
 	'Kenyatta Avenue, Nairobi, Kenya',
 ] as const
 export const COMPANY_ADDRESS = COMPANY_ADDRESS_LINES.join(' ')
-export const SUPPORT_EMAIL = 'clientsupport@enusha.co.ke'
+export const SUPPORT_EMAIL = 'ask@enusha.co.ke'
 export const SUPPORT_TELEPHONE = '+254 759 285059'
 export const TAGLINE = 'Loans Bila Stress'
 

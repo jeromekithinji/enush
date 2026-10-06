@@ -2,6 +2,7 @@ import { randomBytes } from 'node:crypto'
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
+import { notifyEnquirySubmitted } from '@/lib/email'
 import { enquirySchema } from '@/lib/enquiry/schema'
 
 export const runtime = 'nodejs'
@@ -51,6 +52,16 @@ export async function POST (request: Request) {
 			payload: parsed.data,
 		}, null, 2),
 	)
+
+	try {
+		await notifyEnquirySubmitted({
+			reference,
+			submittedAt,
+			payload: parsed.data,
+		})
+	} catch {
+		// Team email is best-effort and must not block the enquiry.
+	}
 
 	if (process.env.ENQUIRY_TEAM_WEBHOOK_URL) {
 		try {
