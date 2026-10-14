@@ -22,7 +22,7 @@ const loanProducts: LoanProduct[] = [
 		description:
 			'For salaried parents and guardians managing school-fee obligations and seasonal education expenses.',
 		amount: 'KES 10K–100K',
-		tenor: 'Up to 4 months',
+		tenor: 'Up to 6 months',
 		interest: '10%',
 		image: {
 			src: '/images/loan-fees-bila-stress.jpg',

@@ -28,7 +28,7 @@ export const LOAN_PRODUCTS: LoanProductConfig[] = [
 		minAmount: 10000,
 		maxAmount: 100000,
 		minTenor: 1,
-		maxTenor: 4,
+		maxTenor: 6,
 		isPaydayAdvance: false,
 	},
 	{
